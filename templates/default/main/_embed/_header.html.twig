@@ -1,0 +1,51 @@
+
+        {% block stylesheets %}
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+        {% endblock %}
+   
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+
+   <header id="header">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark text-white navbar-right">
+        <div class="container-fluid">
+          
+          <a class="navbar-brand " href="/"><h1>API Articles</h1></a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+            
+            <ul class="navbar-nav mr-auto mb-2 mb-lg-0 ">
+             
+              <li class="nav-item">
+                <a class="nav-link " href="/api" >Get API</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link " href="/list" >Articles</a>
+              </li>
+            </ul>
+
+            <ul class="navbar-nav  mb-2 mb-lg-0 ">
+             
+             {% if app.user %}
+              <li class="nav-item">
+             <a class="nav-link href="#" > {{ app.user.username }}</a>     
+             </li>
+            <li class="nav-item">
+                <a class="nav-link " href="/{{ app.user ?'logout':'login' }}" >{{app.user ?'logout':'login'}}</a>
+            </li>
+            {% else %}
+              <li class="nav-item">
+                <a class="nav-link " href="/login" text-align:"right" >Login</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/register">Register</a>
+              </li>
+              {% endif %}
+            </ul>
+          </div>
+        </div>
+      </nav>
+    
+    
+</header>
